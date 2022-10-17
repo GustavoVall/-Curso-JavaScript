@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio JS</title>
+</head>
+
+<body>
+    <script>
+
+        var carString = '[{"auto":"toyota-supra","velocidad_maxima":190},{"auto":"Toyota-ae86","velocidad_maxima":220},{"auto":"ford-focus","velocidad_maxima":170},{"auto":"toyota-corolla","velocidad_maxima":200}]';
+        var carJSON = JSON.parse(carString);
+        
+        var carArray = [
+        
+
+        {
+           marca: "Toyota",
+           modelo: "Supra",
+           velocidad_maxima: 190    
+        },
+        {
+           marca: "Toyota",
+           modelo: "Ae86",
+           velocidad_maxima: 220
+        },
+        {
+           marca: "Ford",
+           modelo: "Focus",
+           velocidad_maxima: 170
+        },
+        {
+           marca: "Toyota",
+           modelo: "Corolla",
+           velocidad_maxima: 200
+        }
+
+        ];
+        var contadorAutos = 0;
+        var acumuladorVelmaxima = 0;
+        var VelmaxToyota = 0;
+        var ModeloToyota = 0;
+        
+        
+
+        for (var index = 0; index < carArray.length; index++) {
+            var car = carArray[index];
+            contadorAutos++;
+            acumuladorVelmaxima+= car.velocidad_maxima;
+
+            if (car.marca == "Toyota") {
+                 if (VelmaxToyota < car.velocidad_maxima)
+               {
+                VelmaxToyota=car.velocidad_maxima;
+                ModeloToyota=car.modelo;
+               } 
+                
+            }
+               
+         }
+    console.log("Promedio Velocidad Maxima: ", acumuladorVelmaxima/carArray.length);
+    console.log("Toyota con Velocidad Maxima mas alta: ", ModeloToyota);
+
+
+           
+    </script>    
+</body>
+</html>
